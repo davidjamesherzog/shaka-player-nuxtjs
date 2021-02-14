@@ -1,35 +1,32 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">shaka-player-nuxtjs</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <video-player
+      :license-server="licenseServer"
+      :manifest-url="manifestUrl"
+      :poster-url="posterUrl"
+    />
   </div>
 </template>
 
 <script>
-export default {};
+import VideoPlayer from '~/components/VideoPlayer.vue';
+export default {
+  components: { VideoPlayer },
+  data() {
+    return {
+      licenseServer: 'https://widevine-proxy.appspot.com/proxy',
+      manifestUrl:
+        'https://dash.akamaized.net/dash264/TestCases/1c/qualcomm/2/MultiRate.mpd',
+      posterUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/a/a7/Big_Buck_Bunny_thumbnail_vlc.png'
+    };
+  }
+};
 </script>
 
 <style>
+@import 'shaka-player/dist/controls.css'; /* Shaka player CSS import */
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -39,25 +36,25 @@ export default {};
   text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.links {
-  padding-top: 15px;
+.max-w-full {
+  max-width: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
 }
 </style>
