@@ -61,6 +61,8 @@ export default {
 </script>
 
 <style>
+@import 'shaka-player/dist/controls.css'; /* Shaka player CSS import */
+
 .size {
   width: 800px;
 }
