@@ -1,6 +1,8 @@
 # shaka-player-nuxtjs
 This simple project contains basic implementation of shaka player with Nuxt.js.
 
+A running example can be found at [https://davidjamesherzog.github.io/shaka-player-nuxtjs/](https://davidjamesherzog.github.io/shaka-player-nuxtjs/).
+
 ## Build Setup
 
 ```bash

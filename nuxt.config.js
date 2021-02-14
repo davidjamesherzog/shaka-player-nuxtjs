@@ -1,4 +1,11 @@
 export default {
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'static',
+
+  router: {
+    base: process.env.NODE_ENV === 'production' ? '/shaka-player-nuxtjs/' : '/'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'shaka-player-nuxtjs',
